@@ -1,27 +1,28 @@
 package com.example.sabloane_proiectare;
 
 public class Main {
-    public static void main(String[] args) {
-        Book Carte1 = new Book("Morometii !");
-        Author Autor1 = new Author("Marin", "Preda");
-        Carte1.addAuthor(Autor1);
+    public static void main(String[] args) throws Exception {
 
+        int lineWidth = 50;
         Section cap1 = new Section("Capitolul 1");
-        Section cap11 = new Section("Capitolul 1.1");
-        Section cap111 = new Section("Capitolul 1.1.1");
-        Section cap1111 = new Section("Subchapter 1.1.1.1");
+        Paragraph p1 = new Paragraph("Paragraph 1");
+        cap1.add(p1);
+        Paragraph p2 = new Paragraph("Paragraph 2");
+        cap1.add(p2);
+        Paragraph p3 = new Paragraph("Paragraph 3");
+        cap1.add(p3);
+        Paragraph p4 = new Paragraph("Paragraph 4");
+        cap1.add(p4);
+        System.out.println("Printing without Alignment");
+        System.out.println();
+        cap1.print();
+        p1.setAlignStrategy(new AlignCenter(lineWidth));
+        p2.setAlignStrategy(new AlignRight(lineWidth));
+        p3.setAlignStrategy(new AlignLeft(lineWidth));
 
-        Carte1.addContent(new Paragraph("Multumesc celor care ..."));
-        Carte1.addContent(cap1);
-        // cap1.print();
-        // cap11.print();
-        // cap111.print();
-        // cap1111.print();
-
-        Carte1.addContent(new Paragraph("Text from subchapter 1.1"));
-        Carte1.addContent(new Paragraph("Text from subchapter 1.1.1"));
-        Carte1.addContent(new Image("Image subchapter 1.1.1.1"));
-
-        Carte1.print();
+        System.out.println();
+        System.out.println("Printing with Alignment");
+        System.out.println();
+        cap1.print();
     }
 }

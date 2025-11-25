@@ -1,13 +1,14 @@
 package com.example.sabloane_proiectare;
-public class Table extends Element {
-    private String CevaInformatii;
 
-    public Table(String CevaInformatii) {
-        this.CevaInformatii = CevaInformatii;
+public class Table implements Element {
+    private String title;
+
+    public Table(String title) {
+        this.title = title;
     }
 
     @Override
     public void print() {
-        System.out.println("Table: " + CevaInformatii);
+        System.out.println("Table: " + title);
     }
 }

@@ -1,11 +1,12 @@
 package com.example.sabloane_proiectare;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Book {
+public class Book implements Element {
     private String title;
-    private List<Element> elements = new ArrayList<>();
     private List<Author> authors = new ArrayList<>();
+    private List<Element> elements = new ArrayList<>();
 
     public Book(String title) {
         this.title = title;
@@ -15,7 +16,7 @@ public class Book {
         authors.add(author);
     }
 
-    public void addContent(Element element) {
+    public void addElement(Element element) {
         elements.add(element);
     }
 
@@ -27,13 +28,18 @@ public class Book {
         }
 
         System.out.println();
-        for (Element element : elements) {
-            printElementRecursive(element);
+        for (Element e : elements) {
+            e.print();
         }
     }
 
-    private void printElementRecursive(Element element) {
-        element.print();
+    @Override
+    public void removeElement(Element element) {
+        elements.remove(element);
+    }
 
+    @Override
+    public Element getElement(int index) {
+        return elements.get(index);
     }
 }
