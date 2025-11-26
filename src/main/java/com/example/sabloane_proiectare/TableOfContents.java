@@ -1,6 +1,6 @@
 package com.example.sabloane_proiectare;
 
-public class 3TableOfContents implements Element {
+public class TableOfContents implements Element {
     private String content;
 
     public TableOfContents(String content) {
